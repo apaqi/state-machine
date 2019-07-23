@@ -26,6 +26,12 @@ public class StatusApp {
     @EnableStateMachine
     static class StateMachineConfig
             extends StateMachineConfigurerAdapter<OrderStatus, OrderStatusChangeEvent> {
+        /**
+         * Configuring States
+         *
+         * @param states
+         * @throws Exception
+         */
         @Override
         public void configure(StateMachineStateConfigurer<OrderStatus, OrderStatusChangeEvent> states)
                 throws Exception {
@@ -37,6 +43,13 @@ public class StatusApp {
                     .states(EnumSet.allOf(OrderStatus.class));
         }
 
+        /**
+         * Configuring Transitions
+         *
+         * there are three different types of transitions: external, internal, and local
+         * @param transitions
+         * @throws Exception
+         */
         @Override
         public void configure(StateMachineTransitionConfigurer<OrderStatus, OrderStatusChangeEvent> transitions)
                 throws Exception {

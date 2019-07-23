@@ -4,6 +4,7 @@ apply plugin: 'java'
 
 buildscript {
     repositories {
+        maven { url "http://xxxx/libs-releases" }////TODO 此处换成公司的私服地址
         mavenLocal()
         mavenCentral()
         jcenter()
@@ -14,7 +15,12 @@ buildscript {
     }
 }
 
-
+repositories {
+    maven { url "http:/xxxx/libs-releases" }//TODO 此处换成公司的私服地址
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
 
 idea {
     project {
@@ -54,7 +60,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
-    compile "org.springframework.statemachine:spring-statemachine-core:1.2.7.RELEASE"
+    compile "org.springframework.statemachine:spring-statemachine-core:1.2.10.RELEASE"
 
 
     compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final"
@@ -68,8 +74,10 @@ dependencies {
     compile "commons-codec:commons-codec:1.10"
     compile "javax.servlet:javax.servlet-api:3.1.0"
     compile "org.slf4j:slf4j-api:${slf4jVersion}"
-
-
+    //add by pwx
+    compile 'org.springframework.statemachine:spring-statemachine-data-common:1.2.10.RELEASE'
+    //compile 'org.springframework.statemachine:spring-statemachine-kyro:1.2.10.RELEASE'
+    compile 'org.springframework.statemachine:spring-statemachine-redis:1.2.10.RELEASE'
 
 
 }
